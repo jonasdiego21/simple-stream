@@ -27,7 +27,7 @@
                 <textarea readonly id="seuId" cols="30" rows="2" class="form-control"></textarea>
             </div>
 
-            <form method="post">
+            <form>
                 <div class="form-group">
                     <label for="idParceiro" class="form-control-label">ID do Parceiro</label>
                     <textarea id="idParceiro" cols="30" rows="2" class="form-control"></textarea>
@@ -37,8 +37,16 @@
             </form>
         </div>
     </div>
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script src="simple-peer.js"></script>
     <script src="index.js"></script>
+
+    <!--<script type="text/javascript">
+        let socket = io('http://localhost:3000/#iniciar')
+        let seuId = document.querySelector('#seuId')
+        socket.emit('seuId', JSON.stringify(seuId))
+        console.log('no cliente', socket.id)
+    </script>-->
 </body>
 </html>

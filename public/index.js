@@ -1,4 +1,4 @@
-navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+navigator.mediaDevices.getUserMedia({ video: true, audio: false })
 .then(stream => {
     const peer = new SimplePeer({
         initiator: location.hash === '#iniciar',
@@ -11,6 +11,10 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
     peer.on('signal', data => {
         let seuId = document.querySelector('#seuId')
         seuId.textContent = JSON.stringify(data)
+
+        let socket = io('http://localhost:3000/#iniciar')
+        socket.emit('seuId', JSON.stringify(data))
+        console.log('no cliente', seuId.textContent)
     })
     
     document.querySelector('form').addEventListener('submit', function(event) {
@@ -29,6 +33,10 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
         videoRemoto.srcObject = stream
         videoRemoto.play()
     })
+
+    let videoLocal = document.querySelector('#local')
+    videoLocal.srcObject = stream
+    videoLocal.play()
 })
 .catch(error => {
     console.error('error', error)
