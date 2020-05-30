@@ -10,7 +10,7 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: false })
     
     peer.on('error', error => console.error('error', error))
     
-    const socket = io('http://localhost:3000')
+    const socket = io('https://meetch-app.herokuapp.com/')
     
     peer.on('signal', data => {
         socket.emit('seuId', JSON.stringify(data))

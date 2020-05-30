@@ -45,7 +45,7 @@
         let seuId = document.querySelector('#seuId')
         let idParceiro = document.querySelector('#idParceiro')
         
-        let socket = io('http://localhost:3000/#iniciar')
+        let socket = io('https://meetch-app.herokuapp.com/')
 
         socket.on('seuId', data => {
             seuId.textContent = JSON.stringify(data)
