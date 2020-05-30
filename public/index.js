@@ -1,6 +1,6 @@
 connected = false
 
-navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+navigator.mediaDevices.getUserMedia({ video: true, audio: true })
 .then(stream => {
     const peer = new SimplePeer({
         initiator: location.hash === '#iniciar',
