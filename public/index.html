@@ -10,30 +10,30 @@
 <body>
     <h1 class="text-center">Video Stream</h1>
 
-    <div class="row">
+    <div class="row">    
         <div class="col-sm-6">
-            <video id="local" width="100%"></video>
+            <video id="remoto" width="100%"></video>
         </div>
 
         <div class="col-sm-6">
-            <video id="remoto" width="100%"></video>
+            <video id="local" width="100%" muted></video>
         </div>
     </div>
 
     <div class="row">   
         <div class="form-group col-sm-12">
-            <div class="form-group">
+            <div class="form-group d-none">
                 <label for="seuId" class="form-control-label">Seu ID</label>
                 <textarea readonly id="seuId" cols="30" rows="2" class="form-control"></textarea>
             </div>
 
             <form>
-                <div class="form-group">
+                <div class="form-group d-none">
                     <label for="idParceiro" class="form-control-label">ID do Parceiro</label>
                     <textarea id="idParceiro" cols="30" rows="2" class="form-control"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Iniciar conversa</button>
+                <button type="submit" class="btn btn-primary btn-block">Participar</button>
             </form>
         </div>
     </div>
