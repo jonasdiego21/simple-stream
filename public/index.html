@@ -41,12 +41,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script src="simple-peer.js"></script>
     <script src="index.js"></script>
-
-    <!--<script type="text/javascript">
-        let socket = io('http://localhost:3000/#iniciar')
+    <script type="text/javascript">
         let seuId = document.querySelector('#seuId')
-        socket.emit('seuId', JSON.stringify(seuId))
-        console.log('no cliente', socket.id)
-    </script>-->
+        let idParceiro = document.querySelector('#idParceiro')
+        
+        let socket = io('http://localhost:3000/#iniciar')
+
+        socket.on('seuId', data => {
+            seuId.textContent = JSON.stringify(data)
+        })
+
+        socket.on('idParceiro', data => {
+            idParceiro.textContent = JSON.stringify(data)
+        })
+    </script>
 </body>
 </html>

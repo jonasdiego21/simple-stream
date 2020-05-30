@@ -18,10 +18,16 @@ app.use('/', (request, response) => {
 })
 
 io.on('connection', socket => {
-    console.log('connected', socket.id)
+    console.log('connected on server', socket.id)
 
     socket.on('seuId', data => {
-        console.log('no servidor', data.id)
+        console.log('seuId', data)
+        socket.broadcast.emit('idParceiro', data)
+    })
+
+    socket.on('IdParceiro', data => {
+        console.log('idParceiro', data)
+        socket.broadcast.emit('seuId', data)
     })
 })
 
